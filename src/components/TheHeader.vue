@@ -1,10 +1,36 @@
 <template>
-  <header class="header-section container mt-4">
-    <h1 class="brand-text">鷹巡，追蹤最新標案與職缺</h1>
-    </header>
-  <div class="container mb-4">
-    <p class="lead">貼上網址，自動擷取標案與職缺關鍵資訊。</p>
-  </div>
+  <template>
+    <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <strong>OspreyTrack 鷹巡</strong>
+        </a>
+
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+          <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/">標案追蹤</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/job-vacancy">💼 職缺資訊</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/glidezone">GlideZone</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="#">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="#">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </template>
 </template>
 
 <style scoped>
