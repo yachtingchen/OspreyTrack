@@ -1,9 +1,17 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import draggable from 'vuedraggable' // 引入拖曳功能
 
+interface Tender {
+  deadline: string
+  tenderNo: string
+  tenderName: string
+  budget: string
+  url: string
+}
+
 const urlInput = ref('')
-const tenders = ref([])
+const tenders = ref<Tender[]>([])
 const isLoading = ref(false)
 
 // 1. 載入資料 (取代 loadTenderData)
@@ -39,7 +47,7 @@ const fetchTender = async () => {
 }
 
 // 4. 刪除資料
-const removeRow = (index) => {
+const removeRow = (index: number) => {
   if (confirm('確定刪除？')) tenders.value.splice(index, 1)
 }
 </script>

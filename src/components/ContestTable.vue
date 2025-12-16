@@ -1,8 +1,15 @@
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import draggable from 'vuedraggable'
 
-const contests = ref([])
+interface Contest {
+  date: string
+  name: string
+  host: string
+  note: string
+}
+
+const contests = ref<Contest[]>([])
 
 onMounted(() => {
   const saved = localStorage.getItem('MyContestData')
@@ -17,7 +24,7 @@ const addRow = () => {
   contests.value.push({ date: '', name: '', host: '', note: '' })
 }
 
-const removeRow = (index) => {
+const removeRow = (index: number) => {
   if (confirm('確定刪除？')) contests.value.splice(index, 1)
 }
 </script>
