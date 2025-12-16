@@ -34,7 +34,7 @@ jobs:
           ###### 針對 Vue (Vite) 的關鍵設定 ######
           app_location: "/"         # 程式碼在根目錄
           api_location: ""          # 沒有後端 API 程式碼
-          output_location: "dist"   # Vite 預設打包輸出的資料夾名稱
+          output_location: "docs"   # Vite 預設打包輸出的資料夾名稱
           ###### End of Configuration ######
 
   close_pull_request_job:
@@ -48,3 +48,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_RED_MUSHROOM_00185380F }}
           action: "close"
+
