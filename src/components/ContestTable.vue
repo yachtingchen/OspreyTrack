@@ -9,7 +9,7 @@ onMounted(() => {
   if (saved) contests.value = JSON.parse(saved)
 })
 
-watch(contests, (newVal) => {
+watch(contests, (newVal) => { 
   localStorage.setItem('MyContestData', JSON.stringify(newVal))
 }, { deep: true })
 
