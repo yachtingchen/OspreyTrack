@@ -1,29 +1,675 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OspreyTrack 鷹巡追蹤器</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="安心伴 — 專為長輩設計的 LINE AI 智慧助理。24 小時陪伴、健康提醒、緊急呼救，讓在外打拼的您隨時掌握家人狀況。" />
+  <title>安心伴 — 讓父母安心，讓你放心</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 
-    <style>
-        :root {
-            --brand-red: #d9534f;
-        }
+  <!-- Google Fonts：Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-        body {
-            font-family: "Microsoft JhengHei", "Segoe UI", sans-serif;
-            background-color: #fff;
-        }
-    </style>
+  <!-- 主要樣式 -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.4.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- =============================================
+       導覽列 (Navigation)
+       ============================================= -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <nav class="nav">
+        <a href="#" class="nav__logo" aria-label="安心伴首頁">
+          <!-- SVG Logo：盾牌 + 心形 -->
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path d="M18 2L4 8v10c0 8.3 5.9 16.1 14 18 8.1-1.9 14-9.7 14-18V8L18 2z" fill="#4A90E2"/>
+            <path d="M13.5 17.5c0-1.4 1.1-2.5 2.5-2.5.7 0 1.3.3 1.75.75L18 16l.25-.25A2.48 2.48 0 0120.5 15c1.4 0 2.5 1.1 2.5 2.5 0 .7-.3 1.3-.75 1.75L18 23l-4.25-3.75c-.45-.45-.75-1.05-.75-1.75z" fill="white"/>
+          </svg>
+          <span>安心伴</span>
+        </a>
+
+        <button class="nav__toggle" id="nav-toggle" aria-label="開啟選單" aria-expanded="false" aria-controls="nav-menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav__menu" id="nav-menu" role="list">
+          <li><a href="#features" class="nav__link">功能特色</a></li>
+          <li><a href="#how-it-works" class="nav__link">使用流程</a></li>
+          <li><a href="#testimonials" class="nav__link">用戶心聲</a></li>
+          <li><a href="#pricing" class="nav__link">方案費用</a></li>
+          <li><a href="#faq" class="nav__link">常見問題</a></li>
+          <li>
+            <a href="#cta" class="btn btn--primary nav__cta">免費試用 30 天</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =============================================
+         英雄區塊 (Hero)
+         ============================================= -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__content animate-on-scroll">
+            <span class="badge">LINE AI 智慧助理</span>
+            <h1 class="hero__title">
+              讓父母安心，<br />
+              <span class="text-accent">讓你放心</span>
+            </h1>
+            <p class="hero__desc">
+              24 小時陪伴長輩的 LINE AI 智慧管家，健康提醒、緊急呼救、日常聊天一手包辦。<br />
+              不需要學新 APP，長輩打開 LINE 就能用。
+            </p>
+            <div class="hero__actions">
+              <a href="#cta" class="btn btn--cta btn--lg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 5.92 2 10.77c0 2.91 1.46 5.51 3.74 7.22V22l3.42-1.88C10.17 20.35 11.07 20.5 12 20.5c5.52 0 10-3.92 10-8.73C22 5.92 17.52 2 12 2z"/></svg>
+                立即加入 LINE 免費試用
+              </a>
+              <a href="#how-it-works" class="btn btn--outline btn--lg">觀看使用說明</a>
+            </div>
+            <div class="hero__trust">
+              <div class="trust-item">
+                <strong>10,000+</strong>
+                <span>家庭使用中</span>
+              </div>
+              <div class="trust-divider" aria-hidden="true"></div>
+              <div class="trust-item">
+                <strong>4.9 ★</strong>
+                <span>用戶滿意度</span>
+              </div>
+              <div class="trust-divider" aria-hidden="true"></div>
+              <div class="trust-item">
+                <strong>30 天</strong>
+                <span>免費試用</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__visual animate-on-scroll animate-delay-1">
+            <!-- Phone Mockup -->
+            <div class="phone-mockup" aria-label="安心伴 LINE 機器人示範畫面">
+              <div class="phone-mockup__frame">
+                <div class="phone-mockup__screen">
+                  <!-- LINE Chat UI Mockup -->
+                  <div class="chat-demo">
+                    <div class="chat-demo__header">
+                      <div class="chat-demo__avatar" aria-hidden="true">安</div>
+                      <div>
+                        <div class="chat-demo__name">安心伴</div>
+                        <div class="chat-demo__status">● 隨時在線</div>
+                      </div>
+                    </div>
+                    <div class="chat-demo__body">
+                      <div class="chat-msg chat-msg--bot">
+                        <div class="chat-msg__bubble">
+                          早安！今天天氣晴朗 ☀️<br />記得 10:00 要服用降血壓藥喔！
+                        </div>
+                        <span class="chat-msg__time">09:00</span>
+                      </div>
+                      <div class="chat-msg chat-msg--user">
+                        <div class="chat-msg__bubble">好的，謝謝你提醒我！</div>
+                        <span class="chat-msg__time">09:03</span>
+                      </div>
+                      <div class="chat-msg chat-msg--bot">
+                        <div class="chat-msg__bubble">
+                          不客氣 😊 有任何不舒服<br />隨時告訴我，我馬上通知家人。
+                        </div>
+                        <span class="chat-msg__time">09:03</span>
+                      </div>
+                      <div class="chat-msg chat-msg--bot">
+                        <div class="chat-msg__card">
+                          <div class="chat-card__icon" aria-hidden="true">💊</div>
+                          <div>
+                            <div class="chat-card__title">今日用藥提醒</div>
+                            <div class="chat-card__desc">降血壓藥 × 1 顆<br />早餐後服用</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Decorative blobs -->
+              <div class="blob blob--1" aria-hidden="true"></div>
+              <div class="blob blob--2" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         痛點區塊 (Pain Points)
+         ============================================= -->
+    <section class="pain-points" id="pain-points">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <h2 class="section-title">你是否也有這些擔憂？</h2>
+          <p class="section-desc">每一位在外打拼的子女，心中都有一塊放不下的牽掛</p>
+        </div>
+        <div class="pain-grid">
+          <div class="pain-card animate-on-scroll">
+            <div class="pain-card__icon" aria-hidden="true">😔</div>
+            <h3>工作忙碌，無法常回家</h3>
+            <p>忙於事業，想陪父母卻分身乏術，每次掛電話都帶著愧疚感。</p>
+          </div>
+          <div class="pain-card animate-on-scroll animate-delay-1">
+            <div class="pain-card__icon" aria-hidden="true">😰</div>
+            <h3>獨居長輩，意外難以預防</h3>
+            <p>長輩一個人在家，萬一跌倒或身體不適，沒人即時發現令人揪心。</p>
+          </div>
+          <div class="pain-card animate-on-scroll animate-delay-2">
+            <div class="pain-card__icon" aria-hidden="true">😟</div>
+            <h3>長輩不會用智慧型手機</h3>
+            <p>教了好幾次還是學不會，不斷下載新 APP 只讓長輩更困惑，更有壓力。</p>
+          </div>
+        </div>
+        <!-- Transition -->
+        <div class="pain-solution animate-on-scroll">
+          <p>安心伴只需要 LINE，長輩馬上就能用 — <strong>就像多了一位貼心鄰居</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         功能特色 (Features)
+         ============================================= -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="badge">核心功能</span>
+          <h2 class="section-title">全方位守護，24 小時不間斷</h2>
+          <p class="section-desc">專為台灣長輩設計，從健康管理到日常陪伴，一個 LINE 全都照顧到</p>
+        </div>
+
+        <div class="features-grid">
+
+          <!-- Feature 1 -->
+          <div class="feature-card animate-on-scroll">
+            <div class="feature-card__icon feature-card__icon--health" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3 class="feature-card__title">健康管理提醒</h3>
+            <p class="feature-card__desc">自動化用藥提醒、回診預約通知、血壓血糖記錄，完整的健康日誌隨時查閱。</p>
+            <ul class="feature-card__list">
+              <li>每日用藥定時提醒</li>
+              <li>門診回診日期通知</li>
+              <li>健康數據記錄與趨勢</li>
+            </ul>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card feature-card--highlight animate-on-scroll animate-delay-1">
+            <div class="feature-card__icon feature-card__icon--emergency" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <span class="feature-card__badge">最受歡迎</span>
+            <h3 class="feature-card__title">緊急呼救系統</h3>
+            <p class="feature-card__desc">長輩傳送「SOS」，系統立即通知所有家庭成員，並提供即時位置，危急時刻分秒必爭。</p>
+            <ul class="feature-card__list">
+              <li>一鍵 SOS 通知全家人</li>
+              <li>家庭群組即時推播</li>
+              <li>緊急聯絡人快速撥號</li>
+            </ul>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card animate-on-scroll animate-delay-2">
+            <div class="feature-card__icon feature-card__icon--companion" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3 class="feature-card__title">溫暖日常陪伴</h3>
+            <p class="feature-card__desc">每日早安問候、天氣資訊、節氣提醒，還能陪長輩聊天，減少孤獨感，維持心理健康。</p>
+            <ul class="feature-card__list">
+              <li>每日早安訊息與天氣</li>
+              <li>輕鬆對話，解悶聊天</li>
+              <li>台灣節日節氣貼心提醒</li>
+            </ul>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card animate-on-scroll">
+            <div class="feature-card__icon feature-card__icon--family" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="feature-card__title">家庭共同守護</h3>
+            <p class="feature-card__desc">子女、兄弟姊妹共同加入家庭群組，即時同步長輩狀況，分擔照護責任，不再孤軍奮戰。</p>
+            <ul class="feature-card__list">
+              <li>多位家人共同監護</li>
+              <li>照護日誌共同查閱</li>
+              <li>重要事項家族廣播</li>
+            </ul>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card animate-on-scroll animate-delay-1">
+            <div class="feature-card__icon feature-card__icon--report" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            </div>
+            <h3 class="feature-card__title">每週健康週報</h3>
+            <p class="feature-card__desc">每週自動產生長輩的健康摘要報告，傳送給子女，讓您不在身旁也能掌握父母的身體狀況。</p>
+            <ul class="feature-card__list">
+              <li>用藥準時率統計</li>
+              <li>活動量趨勢分析</li>
+              <li>PDF 報告可分享醫師</li>
+            </ul>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card animate-on-scroll animate-delay-2">
+            <div class="feature-card__icon feature-card__icon--privacy" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 class="feature-card__title">個資安全保護</h3>
+            <p class="feature-card__desc">全程 256-bit SSL 加密傳輸，符合個人資料保護法規範，健康資料絕不對外分享或販售。</p>
+            <ul class="feature-card__list">
+              <li>醫療級 SSL 加密傳輸</li>
+              <li>符合個資保護法規範</li>
+              <li>資料不會分享給第三方</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         使用流程 (How It Works)
+         ============================================= -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="badge">快速上手</span>
+          <h2 class="section-title">三步驟，馬上開始守護</h2>
+          <p class="section-desc">設定流程簡單到不行，10 分鐘內即可完成，長輩不需要學任何新技能</p>
+        </div>
+
+        <div class="steps">
+          <div class="step animate-on-scroll">
+            <div class="step__number" aria-hidden="true">1</div>
+            <div class="step__content">
+              <h3>子女掃描 QR Code 加入好友</h3>
+              <p>用您的 LINE 掃描 QR Code，加入「安心伴」好友，花 2 分鐘完成帳號建立與家庭設定。</p>
+            </div>
+          </div>
+          <div class="step__arrow" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+          <div class="step animate-on-scroll animate-delay-1">
+            <div class="step__number" aria-hidden="true">2</div>
+            <div class="step__content">
+              <h3>邀請長輩加入並設定資料</h3>
+              <p>傳送邀請連結給父母，協助他們加入好友。輸入用藥時間、緊急聯絡人等基本資料，完成個人化設定。</p>
+            </div>
+          </div>
+          <div class="step__arrow" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+          <div class="step animate-on-scroll animate-delay-2">
+            <div class="step__number" aria-hidden="true">3</div>
+            <div class="step__content">
+              <h3>開始享受安心守護</h3>
+              <p>設定完成！安心伴會自動開始提醒用藥、每日問候長輩，並在緊急時刻通知您。您可以隨時透過子女端查看狀況。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="steps__cta animate-on-scroll">
+          <a href="#cta" class="btn btn--cta btn--lg">立即免費開始使用</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         社會驗證 (Social Proof / Testimonials)
+         ============================================= -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="badge">用戶心聲</span>
+          <h2 class="section-title">他們找回了放心陪伴父母的感覺</h2>
+        </div>
+
+        <div class="testimonials-grid">
+
+          <div class="testimonial-card animate-on-scroll">
+            <div class="testimonial-card__stars" aria-label="五星評價">★★★★★</div>
+            <blockquote>
+              「爸爸之前老是忘記吃藥，現在安心伴每天提醒他，血壓控制好了很多。而且他說機器人很有禮貌，比我還好說話。」
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">陳</div>
+              <div>
+                <cite>陳小姐</cite>
+                <span>台北 / 科技業專案經理，38 歲</span>
+              </div>
+            </footer>
+          </div>
+
+          <div class="testimonial-card testimonial-card--featured animate-on-scroll animate-delay-1">
+            <div class="testimonial-card__stars" aria-label="五星評價">★★★★★</div>
+            <blockquote>
+              「媽媽一個人住在南部，我在台北上班很擔心。有一次她說不舒服，安心伴立刻通知我和哥哥，讓我們可以馬上處理。真的很感謝。」
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">林</div>
+              <div>
+                <cite>林先生</cite>
+                <span>台北 / 金融業業務，42 歲</span>
+              </div>
+            </footer>
+          </div>
+
+          <div class="testimonial-card animate-on-scroll animate-delay-2">
+            <div class="testimonial-card__stars" aria-label="五星評價">★★★★★</div>
+            <blockquote>
+              「我爸原本說不要用什麼機器人，但試用幾天後反而問我怎麼跟它多聊幾句。現在每天早上他都在等安心伴的早安訊息！」
+            </blockquote>
+            <footer class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">王</div>
+              <div>
+                <cite>王小姐</cite>
+                <span>新竹 / 工程師，31 歲</span>
+              </div>
+            </footer>
+          </div>
+
+        </div>
+
+        <!-- 數據統計 -->
+        <div class="stats-bar animate-on-scroll">
+          <div class="stats-bar__item">
+            <strong class="stat-number" data-target="10000">0</strong>
+            <span>家庭使用中</span>
+          </div>
+          <div class="stats-bar__item">
+            <strong class="stat-number" data-target="98">0</strong>
+            <span>% 用戶推薦率</span>
+          </div>
+          <div class="stats-bar__item">
+            <strong class="stat-number" data-target="300000">0</strong>
+            <span>次成功用藥提醒</span>
+          </div>
+          <div class="stats-bar__item">
+            <strong class="stat-number" data-target="4.9">0</strong>
+            <span>平均評分（滿分 5）</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         方案費用 (Pricing)
+         ============================================= -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="badge">方案費用</span>
+          <h2 class="section-title">簡單透明，沒有隱藏費用</h2>
+          <p class="section-desc">所有方案均提供 30 天免費試用，試用期間全功能解鎖，不滿意不收費</p>
+        </div>
+
+        <div class="pricing-grid">
+
+          <!-- Free Plan -->
+          <div class="pricing-card animate-on-scroll">
+            <div class="pricing-card__header">
+              <h3>基本方案</h3>
+              <div class="pricing-card__price">
+                <span class="price-amount">免費</span>
+              </div>
+              <p>適合初次嘗試的家庭</p>
+            </div>
+            <ul class="pricing-card__features">
+              <li class="included">每日用藥提醒（2 種藥）</li>
+              <li class="included">早安問候訊息</li>
+              <li class="included">天氣資訊</li>
+              <li class="included">1 位緊急聯絡人</li>
+              <li class="excluded">緊急 SOS 通知</li>
+              <li class="excluded">健康週報</li>
+              <li class="excluded">家庭多人共管</li>
+            </ul>
+            <a href="#cta" class="btn btn--outline">開始免費使用</a>
+          </div>
+
+          <!-- Standard Plan -->
+          <div class="pricing-card pricing-card--popular animate-on-scroll animate-delay-1">
+            <div class="pricing-card__badge">最多人選擇</div>
+            <div class="pricing-card__header">
+              <h3>家庭方案</h3>
+              <div class="pricing-card__price">
+                <span class="price-currency">NT$</span>
+                <span class="price-amount">299</span>
+                <span class="price-period">/ 月</span>
+              </div>
+              <p>照顧 1 位長輩的完整守護</p>
+            </div>
+            <ul class="pricing-card__features">
+              <li class="included">無限用藥提醒</li>
+              <li class="included">早安問候 + 日常陪伴對話</li>
+              <li class="included">即時天氣、節氣提醒</li>
+              <li class="included">最多 5 位緊急聯絡人</li>
+              <li class="included">緊急 SOS 即時通知</li>
+              <li class="included">每週健康週報</li>
+              <li class="included">家庭共同監護（最多 3 人）</li>
+            </ul>
+            <a href="#cta" class="btn btn--cta">免費試用 30 天</a>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="pricing-card animate-on-scroll animate-delay-2">
+            <div class="pricing-card__header">
+              <h3>大家庭方案</h3>
+              <div class="pricing-card__price">
+                <span class="price-currency">NT$</span>
+                <span class="price-amount">499</span>
+                <span class="price-period">/ 月</span>
+              </div>
+              <p>守護多位長輩的擴充方案</p>
+            </div>
+            <ul class="pricing-card__features">
+              <li class="included">家庭方案所有功能</li>
+              <li class="included">最多照顧 3 位長輩</li>
+              <li class="included">無限家庭成員共管</li>
+              <li class="included">進階健康分析報告</li>
+              <li class="included">PDF 報告匯出</li>
+              <li class="included">優先客服支援</li>
+              <li class="included">專屬設定顧問服務</li>
+            </ul>
+            <a href="#cta" class="btn btn--outline">免費試用 30 天</a>
+          </div>
+
+        </div>
+
+        <p class="pricing__note animate-on-scroll">
+          所有方案均可隨時取消，無合約綁定。如需企業或機構方案，請
+          <a href="mailto:hello@ancare.tw">聯絡我們</a>。
+        </p>
+      </div>
+    </section>
+
+    <!-- =============================================
+         常見問題 (FAQ)
+         ============================================= -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="badge">常見問題</span>
+          <h2 class="section-title">有疑問？我們來解答</h2>
+        </div>
+
+        <div class="faq-list animate-on-scroll">
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              長輩需要學什麼才能使用嗎？
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>完全不需要！只要長輩平常有在用 LINE，就能直接使用安心伴。加入好友後，安心伴會主動傳訊息給長輩，長輩只需要像平常聊 LINE 一樣回覆就好。不需要下載任何額外 APP，不需要學習操作介面。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              設定複雜嗎？需要花很多時間嗎？
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>初次設定約需 10 分鐘。子女加入好友後，系統會引導您一步步輸入長輩的基本資料、用藥時間、緊急聯絡人。設定完成後，安心伴就會自動開始運作，後續只需偶爾調整即可。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              我的家人個人資料安全嗎？
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>我們採用金融級 256-bit SSL 加密傳輸，所有健康資料儲存在台灣本地伺服器，符合「個人資料保護法」相關規定。我們絕對不會將您家人的資料分享給任何第三方，也不會用於廣告目的。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              如果長輩沒有 LINE，怎麼辦？
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>LINE 是台灣最普及的即時通訊軟體，大多數長輩都已在使用。如果長輩尚未安裝，協助下載 LINE 並設定帳號只需約 5 分鐘。我們也提供圖文安裝教學，讓設定過程更輕鬆。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              可以同時照顧多位長輩嗎？
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>家庭方案可照顧 1 位長輩，若需要同時守護多位長輩（例如父親和母親各有獨立的照護需求），可升級至「大家庭方案」，最多同時照顧 3 位長輩，費用更划算。</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-item__question">
+              試用期結束後，需要立刻付費嗎？
+              <svg class="faq-item__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </summary>
+            <div class="faq-item__answer">
+              <p>30 天試用期結束前，我們會提前 3 天以 LINE 通知提醒您。如果您決定繼續使用，屆時再進行付款即可。如果決定不繼續，帳號會自動降為基本（免費）方案，不會有任何費用。絕對不會在您不知情的情況下自動扣款。</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+         最終行動呼籲 (Final CTA)
+         ============================================= -->
+    <section class="final-cta" id="cta">
+      <div class="container">
+        <div class="final-cta__content animate-on-scroll">
+          <h2>今天就開始，讓愛不再有距離</h2>
+          <p>免費試用 30 天，感受陪伴的溫度。<br />不需要信用卡，隨時可以取消。</p>
+          <div class="final-cta__actions">
+            <a href="#" class="btn btn--cta btn--xl">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 5.92 2 10.77c0 2.91 1.46 5.51 3.74 7.22V22l3.42-1.88C10.17 20.35 11.07 20.5 12 20.5c5.52 0 10-3.92 10-8.73C22 5.92 17.52 2 12 2z"/></svg>
+              加入 LINE，立即免費試用
+            </a>
+            <p class="final-cta__hint">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              個資安全保護　|　隨時可取消　|　30 天免費試用
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       頁尾 (Footer)
+       ============================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="nav__logo" aria-label="安心伴首頁">
+            <svg width="32" height="32" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+              <path d="M18 2L4 8v10c0 8.3 5.9 16.1 14 18 8.1-1.9 14-9.7 14-18V8L18 2z" fill="#4A90E2"/>
+              <path d="M13.5 17.5c0-1.4 1.1-2.5 2.5-2.5.7 0 1.3.3 1.75.75L18 16l.25-.25A2.48 2.48 0 0120.5 15c1.4 0 2.5 1.1 2.5 2.5 0 .7-.3 1.3-.75 1.75L18 23l-4.25-3.75c-.45-.45-.75-1.05-.75-1.75z" fill="white"/>
+            </svg>
+            <span>安心伴</span>
+          </a>
+          <p>讓科技成為家人間最溫暖的橋樑，用 LINE AI 守護您最珍貴的家人。</p>
+          <div class="footer__social">
+            <a href="#" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="LINE 官方帳號">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.92 2 10.77c0 2.91 1.46 5.51 3.74 7.22V22l3.42-1.88C10.17 20.35 11.07 20.5 12 20.5c5.52 0 10-3.92 10-8.73C22 5.92 17.52 2 12 2z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <h4>產品</h4>
+          <ul>
+            <li><a href="#features">功能特色</a></li>
+            <li><a href="#pricing">方案費用</a></li>
+            <li><a href="#faq">常見問題</a></li>
+            <li><a href="#">使用教學</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__links">
+          <h4>關於我們</h4>
+          <ul>
+            <li><a href="#">品牌故事</a></li>
+            <li><a href="#">媒體報導</a></li>
+            <li><a href="#">聯絡我們</a></li>
+            <li><a href="#">加入我們</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__links">
+          <h4>法律條款</h4>
+          <ul>
+            <li><a href="#">服務條款</a></li>
+            <li><a href="#">隱私權政策</a></li>
+            <li><a href="#">個資保護說明</a></li>
+            <li><a href="#">Cookie 政策</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2025 安心伴 AnCare Technology Co., Ltd. 版權所有</p>
+        <p>
+          <a href="mailto:hello@ancare.tw">hello@ancare.tw</a>
+          　|　客服時間：週一至週五 9:00–18:00
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到頂部按鈕 -->
+  <button class="back-to-top" id="back-to-top" aria-label="回到頁面頂部" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- 主要 JavaScript -->
+  <script src="js/main.js"></script>
 </body>
 </html>
